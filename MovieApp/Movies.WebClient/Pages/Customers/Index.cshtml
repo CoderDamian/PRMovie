@@ -1,0 +1,33 @@
+﻿@page
+@model Movies.WebClient.Pages.Customers.IndexModel
+@{
+    <h1>Contact Home's Page</h1>
+
+    <form method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Customers != null)
+                {
+                    @foreach (var customer in Model.Customers)
+                    {
+                        <tr>
+                            <td>@customer.Id</td>
+                            <td>@customer.Name</td>
+                            <td>
+                            <a asp-page="./Edit" asp-asp-route-Id="@customer.Id"></a>
+                            <button type="submit" asp-page-handler="delete" asp-asp-route-id="@customer.Id">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <a asp-asp-page="Create">Create a new</a>
+    </form>
+}
