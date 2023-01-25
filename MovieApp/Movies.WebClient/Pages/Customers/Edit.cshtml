@@ -1,0 +1,21 @@
+﻿@page "{id:int?}"
+@model Movies.WebClient.Pages.Customers.EditModel
+@{
+    <h1>Edit a contact</h1>
+
+    <form method="post">
+        <label asp-for="Customer.Name" class="control-label"></label>
+        <input asp-for="Customer.Name" class="form-control">
+        <input type="submit" value="Save">
+    </form>
+
+    <div>
+        <a asp-page="./Index">Back to list</a>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+}
